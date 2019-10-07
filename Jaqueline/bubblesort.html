@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Bubblesort</title>
+</head>
+
+<body>
+    <script>
+
+    function bubble (vet){
+
+        for (let x= 0; x < vet.length ;x++) {
+            for (let i = 0; i < vet.length-1; i ++) {
+                let aux = 0;
+                if (vet[i + 1] < vet[i]) {
+                    aux = vet[i + 1];
+                    vet[i + 1] = vet[i];
+                    vet[i] = aux
+                }
+            }
+            console.log(vet)
+        }
+
+        
+    }
+
+    bubble([25,57,48,37,18,92,86,33])
+
+
+
+
+    </script>
+
+</body>
+
+</html>

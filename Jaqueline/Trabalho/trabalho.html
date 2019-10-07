@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Trabalho Jaqueline</title>
+    <link rel="stylesheet" href="corpo.css">
+</head>
+
+<body>
+    <script>
+
+
+        //Bubblesort
+        function bubble(vet) {
+
+            for (let x = 0; x < vet.length; x++) {
+                for (let i = 0; i < vet.length - 1; i++) {
+                    let aux = 0;
+                    if (vet[i + 1] < vet[i]) {
+                        aux = vet[i + 1];
+                        vet[i + 1] = vet[i];
+                        vet[i] = aux
+                    }
+                }
+                //  console.log(vet)
+            }
+            return console.log(vet)
+
+        }
+        //Seleçao direta
+        function selecao(vet) {
+
+            for (let x = 0; x < vet.length; x++) {
+                let menor = x;
+                for (let i = x + 1; i < vet.length; i++) {
+                    let aux = 0;
+                    if (vet[menor] > vet[i]) {
+                        aux = vet[i];
+                        vet[i] = vet[x];
+                        vet[x] = aux;
+                    }
+                }
+                // console.log(vet)
+            }
+            return console.log(vet)
+        }
+        //Inserção direta
+        function insercao(vet) {
+
+            for (let x = 1; x < vet.length; x++) { //Percorre o vetor
+                let indice = vet[x];
+                let aux = 0;
+                let j = x - 1;
+
+                while (j >= 0 && aux == 0) {
+                    if (indice < vet[j]) {
+                        vet[j + 1] = vet[j]
+                        j--
+                    } else {
+                        aux = j + 1;
+                    }
+                }
+                vet[aux] = indice
+
+            }
+            return console.log(vet)
+        }
+
+        //Quick Sort
+        function quicksort(array, left, right) {
+            var i = left;
+            var j = right;
+            var tmp;
+            var pivotidx = (left + right) / 2;
+            var pivot = parseInt(array[pivotidx.toFixed()]);
+            // PARTI��O
+            while (i <= j) {
+                while (parseInt(array[i]) < pivot)
+                    i++;
+                while (parseInt(array[j]) > pivot)
+                    j--;
+                if (i <= j) {
+                    tmp = array[i];
+                    array[i] = array[j];
+                    array[j] = tmp;
+                    i++;
+                    j--;
+                }
+            }
+            // RECURS�O
+            if (left < j)
+                quicksort(array, left, j);
+            if (i < right)
+                quicksort(array, i, right);
+            return array;
+
+        }
+
+        // Criando vetor dados 
+        function getRandom(max) {
+            return Math.floor(Math.random() * max + 1)
+        }
+
+        let vetor1 = [];
+        for (let i = 0; i < 100; i++) {
+            vetor1.push(getRandom(1000))
+        }
+        let vetor2 = vetor1.slice();
+        let vetor3 = vetor1.slice();
+        let vetor4 = vetor1.slice();
+
+
+        console.log(quicksort(vetor4,0,vetor4.length-1));
+
+        function medicao(fun, vet, ind1, ind2) {
+            let antes = Date.now();
+            fun(vet, ind1, ind2);
+            let duracao = Date.now() - antes;
+            return duracao;
+        }   
+
+        let teste = [10,57,3,25,45,15]
+
+
+
+        //document.write(`teste ${quicksort(teste,0,teste.length -1)}`)
+        document.write(`Inserção levou ${medicao(insercao, vetor1)}  ms  </br>`);
+        document.write(`BubbleSort levou ${medicao(bubble, vetor2)}  ms  </br>`);
+        document.write(`Seleção direta levou ${medicao(selecao, vetor3)}  ms </br>`);
+        document.write(`Quick Sort levou ${medicao(quicksort, vetor4, 0, vetor4.length - 1)} ms`);
+
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>

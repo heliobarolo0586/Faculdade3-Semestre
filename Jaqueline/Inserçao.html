@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        function insercao(vet) {
+
+
+            for (let x = 1; x < vet.length; x++) { //Percorre o vetor
+                var indice = vet[x];
+                var aux = 0;
+                var j = x - 1;
+
+                while (j >= 0 && aux == 0) {
+                    if (indice < vet[j]) {
+                        vet[j + 1] = vet[j]
+                        j--
+                    } else {
+                        aux = j + 1;
+                    }
+                }
+                vet[aux] = indice
+                console.log(vet)
+            }
+
+        }
+
+
+        insercao([10, 57, 3, 25, 48, 15])
+
+
+    </script>
+
+</body>
+
+</html>

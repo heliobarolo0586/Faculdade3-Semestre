@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        /*  //Inserção direta
+            function insercao(vet) {
+    
+                for (let x = 1; x < vet.length; x++) { //Percorre o vetor
+                    let indice = vet[x];
+                    let aux = 0;
+                    let j = x - 1;
+    
+                    while (j >= 0 && aux == 0) {
+                        if (indice < vet[j]) {
+                            vet[j + 1] = vet[j]
+                            j--
+                        } else {
+                            aux = j + 1;
+                        }
+                    }
+                    vet[aux] = indice
+    
+                }
+                return console.log(vet)
+            }
+    
+            // Criando vetor dados 
+            function getRandom(max) {
+                return Math.floor(Math.random() * max + 1)
+            }
+    
+            let vetor1 = [];
+            for (let i = 0; i < 10; i++) {
+                vetor1.push(getRandom(100))
+            }
+            */
+
+
+        function buscaBinaria(vet, num, left, right) {
+            var i = parseInt(((left + right) / 2).toFixed(0));
+            var comeco = left
+            var fim = right
+            var res = 0
+            if (num > vet[vet.length - 1]) {
+                return res = "Numero não existe "
+            } else if (num == vet[i]) {
+                return res = (i)
+            } else if (num > vet[i]) {
+                return buscaBinaria(vet, num, i + 1, fim)
+            }
+            else {
+                return buscaBinaria(vet, num, comeco, i - 1)
+            }
+        }
+
+        var vetor = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+        var vetor1= [-2,-1,2,5,7,9,10,15,30,45];
+
+
+        document.write(buscaBinaria(vetor, 7, 0, vetor.length - 1) + "</br>")
+        document.write(buscaBinaria(vetor1,5,0, vetor.length - 1))
+
+        
+
+
+
+
+
+    </script>
+</body>
+
+</html>

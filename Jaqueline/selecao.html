@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <script>
+    function selecao (vet){
+
+        for (var x = 0; x < vet.length ; x++) {
+           var menor = x;
+            for (var i = x+1 ; i < vet.length; i++) {
+                var aux = 0;
+                if (vet[menor] > vet[i]) {
+                    aux = vet[i];
+                    vet[i] = vet[x];
+                    vet[x] = aux;
+                }
+            }
+            console.log(vet)
+        }
+    }
+
+     selecao ([8,12,1,5,18,92,86,33])
+    
+
+    </script>
+
+</head>
+
+<body>
+
+
+
+</body>
+
+</html>

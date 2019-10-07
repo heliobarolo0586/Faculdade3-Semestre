@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function bemFormada(vet) {
+            let pilha = [];
+            let aux = ""
+
+            for (x = 0; x < vet.length; x++) { // Percorre o vetor 
+
+                if (vet[x] == "(" || vet[x] == "[" || vet[x] == "{") { // caso for abrindo 
+                    pilha.push(vet[x])
+                } else if (vet[x] == ")" || vet[x] == "]" || vet[x] == "}") { // Caso for fechando
+                    aux = pilha.pop();
+                    switch (aux) {
+                        case '(':
+                            if (vet[x] == ")") {
+                                break;
+                            } else {
+                                pilha.push(aux);
+                                break;
+                            }
+                        case "{":
+                            if (vet[x] == "}") {
+                                break;
+                            } else {
+                                pilha.push(aux);
+                                break;
+                            }
+                        case "[":
+                            if (vet[x] == "]") {
+                                break;
+                            } else {
+                                pilha.push(aux);
+                                break;
+                            }
+                        default:
+                            return false;
+                            break;
+                    }
+                }   
+            }
+            if (pilha.length == 0 ){
+                return true;
+            } else {
+                return false;
+            }
+
+        }
+        //Saída de dados
+        let vetor = ['(','(','{','{','}','}',')',')','[',']']
+        let teste = bemFormada(vetor)
+        if (teste == true ){
+            alert('Expressão correta ')
+        }else {
+            alert('Expressão incorreta ') 
+        }
+
+    </script>
+
+</body>
+
+</html>

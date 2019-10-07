@@ -1,0 +1,77 @@
+function LinkedList() {
+    let Node = function (element) {
+        this.element = element;
+        this.next = null;
+    };
+    let length = 0;
+    let head = null;
+
+    this.append = function (element) {
+        let node = new Node(element), current;
+        if (head === null) {
+            head = node;
+        } else {
+            current = head;
+            while (current.next) {
+                current = current.next;
+            }
+            current.next = node;
+        }
+        length++;
+    };
+
+    this.size = function () {
+        return length;
+    };
+
+    this.valores = function () {
+        let current = head;
+        string = ""
+        while (current) {
+            string += current.element + (current.next ? '->' : '');
+            current = current.next;
+        }
+        return string;
+
+
+    }
+
+    this.remove = function () {
+        let current = head;
+        let aux = current.element ;
+        current.next ? head = current.next : head = null;
+        return aux;
+    }
+
+    
+    this.inserir = function (element) {
+        let node = new Node(element);
+        let current = head;
+        let x = current.element
+
+        // let aux = current.next.element;
+
+        if (head === null) {
+            head = node;
+        } else {
+            head = node;
+            while (current.next) {
+                current.next = x
+
+            }
+
+        }
+        length++;
+    };
+
+}
+
+lista = new LinkedList();
+lista.append(10);
+lista.append(12);
+lista.append(4);
+console.log(lista.size());
+console.log(lista.valores());
+console.log(lista.remove())
+console.log(lista.valores());
+console.log (lista.inserir(20))
