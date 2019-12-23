@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf8" />
+    <title>Página de Teste</title>
+    <script>
+
+        var lista = new Array(10);
+
+        function addLista(item){
+            let posicao = item.charCodeAt() % lista.length;
+            while(lista[posicao]){
+                if(posicao == 9)
+                    posicao = 0
+                else
+                    posicao++
+            }
+            lista[posicao] = item;
+        }
+
+        function searchLista(item){
+            if(lista.indexOf(item) != -1)
+                return "O item " + item + " existe!"
+            else
+                return "O item " + item + " não existe!"
+        }
+
+        addLista("l");
+        addLista("a");
+        addLista("h");
+        addLista("m");
+        addLista("j");
+        addLista("n");
+        addLista("p");
+        addLista("z");
+
+        console.log(lista);
+
+        console.log(searchLista("A"))
+        console.log(searchLista("x"))
+        console.log(searchLista("a"))
+
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>

@@ -1,0 +1,20 @@
+#containerContate{
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(25,25,112,0.22);
+    text-align: center;
+}
+
+#containerContate label{
+    color: rgb(25,25,112);
+    font-size: 20px;
+    margin-top: 0;
+}
+
+.scrollspy {
+    position: relative;
+    overflow: auto;
+     height: 380px;
+}

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+    <title>Minha primeira página HTML</title>
+    <script>
+        'use strict'; // Modo chato do JS
+
+
+        function hash(mod) {
+
+            let vet = new Array(mod)
+
+            function chavear(valor) {
+                valor = valor.charCodeAt() % mod
+                return valor;
+            }
+
+            this.add = function (valor) {
+                let i = 0;
+                let posicao, aux;
+                posicao = chavear(valor);
+
+
+                while (vet[posicao]) {
+                    if (i == vet.length) {
+                        return -1;
+                    }
+                    else {
+                        posicao++;
+                        i++;
+                    }
+                    if (posicao == vet.length) {
+                        posicao = 0;
+                    }
+                }
+                vet[posicao] = valor;
+
+                return vet
+            }
+
+            this.onde = function (valor) {
+                let i = 0;
+                let posicao,aux;
+                posicao = chavear(valor);
+
+                while (vet[posicao]) {
+                    if (vet[posicao]==valor){
+                        return posicao
+                    }
+                    else if (i == vet.length) {
+                        return -1;
+                    }
+                    else {
+                        posicao++;
+                        i++;
+                    }
+                    if (posicao == vet.length) {
+                        posicao = 0;
+                    }
+                }
+            }
+        }
+
+        let aux = ciclos;
+      for (let i = 0;i < aux;i++){
+        if (ciclos % 2 == 0){
+          tamanho++
+        } else{
+          tamanho = tamanho * 2
+        }
+        ciclos--
+      }
+
+        let vetor = new hash(10);
+
+        console.log(vetor.add("a"));
+        console.log(vetor.add("b"));
+        console.log(vetor.add("c"));
+        console.log(vetor.add("m"));
+        console.log(vetor.add("q"));
+
+        console.log(vetor.onde("a"));
+
+    </script>
+</head>
+
+<body>
+    <h1>Título</h1>
+    <p>Isto é um parágrafo</p>
+</body>
+
+</html>
